@@ -28,12 +28,15 @@
     </div>
 </section>
 
-<footer class="footer bg-black py-4">
+
+        <footer class="footer bg-black py-4">
     <div class="container text-center">
+        <div class="container text-center">
+        
         <div class="prensa-link mb-3">
              <a href="prensa.php" class="text-white">Kit de Prensa / Biografía Completa</a>
         </div>
-
+    </div>
         <div class="social-links mb-3">
             <a href="#" class="text-white mx-3" target="_blank" aria-label="Facebook"><i class="fab fa-facebook fa-2x"></i></a>
             <a href="https://www.instagram.com/fedegonzalez.escritor/" class="text-white mx-3" target="_blank" aria-label="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
@@ -51,24 +54,36 @@
         
         <p class="text-white mb-0">© <?php echo date("Y"); ?> Federico Gonzalez. Desarrollado con ❤️ y Código.</p>
     </div>
-</footer>
 
-<button id="btnBackToTop" title="Volver al inicio" style="display:none;"><i class="fas fa-arrow-up"></i></button>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
 <script>
-    AOS.init({ duration: 800, once: true });
+    // 1. Inicializar AOS (para el resto de la página)
+    AOS.init({
+        duration: 800, 
+        once: true 
+    });
+
+    // 2. Inicializar Typed.js para el Hero
     var options = {
         strings: [
             '<span class="text-accent-blue">Constructor</span> de sistemas',
             '<span class="text-accent-orange">Escritor</span> de latidos'
         ],
-        typeSpeed: 50, backSpeed: 25, backDelay: 1500, loop: true, smartBackspace: true, showCursor: true, cursorChar: '|'
+        typeSpeed: 50,
+        backSpeed: 25,      // Re-activado para el efecto de borrado
+        backDelay: 1500,  // Pausa antes de borrar
+        loop: true,         // Re-activado para el bucle
+        smartBackspace: true, 
+        showCursor: true,   
+        cursorChar: '|'
     };
     var typed = new Typed('#typed-hero', options);
 </script>
