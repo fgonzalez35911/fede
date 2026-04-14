@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federico Marcelo González | Autor</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           VARIABLES Y RESETEO AVANZADO
+           ========================================= */
+        :root {
+            --bg-base: #030305;
+            --text-light: #f4f4f5;
+            --text-muted: #8a8a93;
+            --accent-gold: #d4af37;
+            --accent-cyan: #00f3ff;
+            --accent-crimson: #8a0303;
+            --glass-bg: rgba(20, 20, 25, 0.6);
+            --border-glow: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-light);
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Scrollbar personalizado */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-base); }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-gold); }
+
+        /* =========================================
+           NAVEGACIÓN COMPLEJA (STICKY)
+           ========================================= */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            z-index: 1000;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(3, 3, 5, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-glow);
+            padding: 15px 5%;
+        }
+
+        .nav-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0%; height: 1px;
+            background: var(--text-light);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        /* =========================================
+           SECCIÓN 1: HERO (IMPACTO VISUAL)
+           ========================================= */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a24 0%, #030305 80%);
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+            opacity: 0.03;
+            z-index: -1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 20px;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-cyan);
+            letter-spacing: 8px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 5vw;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(180deg, #ffffff 0%, #7a7a8c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1.2s ease-out 0.3s backwards;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        /* =========================================
+           SECCIÓN 2: ROMANCE (VOLVERÉ A ENCONTRARTE)
+           ========================================= */
+        .section-romance {
+            padding: 150px 5%;
+            background: linear-gradient(to bottom, var(--bg-base), #0a0a0c);
+            position: relative;
+        }
+
+        .layout-split {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 60px;
+        }
+
+        .layout-split.reverse { flex-direction: row-reverse; }
+
+        .book-visual {
+            flex: 1;
+            position: relative;
+        }
+
+        .book-cover {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 2/3;
+            background: #111;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .book-cover::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+
+        .book-info { flex: 1; }
+
+        .genre-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .tag-romance { color: var(--accent-gold); font-family: 'Cinzel', serif; }
+        .tag-scifi { color: var(--accent-cyan); font-family: 'Orbitron', sans-serif; }
+        .tag-lore { color: var(--accent-crimson); font-family: 'Cinzel', serif; }
+
+        .book-title-romance {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .book-excerpt {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        .book-desc {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .btn-compra {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 40px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn-romance { border: 1px solid var(--accent-gold); color: var(--accent-gold); }
+        .btn-romance:hover { background: var(--accent-gold); color: #000; }
+
+        /* =========================================
+           SECCIÓN 3: SCI-FI (BAJO LA SOMBRA)
+           ========================================= */
+        .section-scifi {
+            padding: 150px 5%;
+            background: #020203;
+            position: relative;
+            border-top: 1px solid rgba(0, 243, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+        }
+
+        .book-title-scifi {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+        }
+
+        .excerpt-scifi {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            background: rgba(0, 243, 255, 0.03);
+            border-left: 3px solid var(--accent-cyan);
+            padding: 20px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            line-height: 1.6;
+        }
+
+        .btn-scifi { border: 1px solid var(--accent-cyan); color: var(--accent-cyan); }
+        .btn-scifi:hover { background: var(--accent-cyan); color: #000; box-shadow: 0 0 20px rgba(0, 243, 255, 0.4); }
+
+        /* =========================================
+           SECCIÓN 4: LORE (MENTE MAESTRA)
+           ========================================= */
+        .section-lore {
+            padding: 150px 5%;
+            background: linear-gradient(to top, var(--bg-base), #0a0505);
+            position: relative;
+        }
+
+        .book-title-lore {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .excerpt-lore {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(138, 3, 3, 0.3);
+            border-bottom: 1px solid rgba(138, 3, 3, 0.3);
+            padding: 30px 0;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .btn-lore { border: 1px solid var(--accent-crimson); color: var(--text-light); }
+        .btn-lore:hover { background: var(--accent-crimson); color: #fff; }
+
+        /* =========================================
+           ANIMACIONES
+           ========================================= */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+
+        /* Revelar al scrollear */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 992px) {
+            .layout-split, .layout-split.reverse { flex-direction: column; text-align: center; }
+            .book-excerpt { border-left: none; border-top: 3px solid var(--accent-gold); padding: 20px 0 0 0; }
+            .excerpt-scifi { border-left: none; border-top: 3px solid var(--accent-cyan); }
+            .book-title-romance, .book-title-scifi, .book-title-lore { font-size: 2.5rem; }
+            .hero-title { font-size: 3rem; }
+            .nav-links { display: none; } /* En un proyecto real acá iría un menú hamburguesa */
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#" class="nav-logo">F.M.G</a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#romance">Romance</a></li>
+            <li><a href="#scifi">Sci-Fi</a></li>
+            <li><a href="#lore">Enciclopedia</a></li>
+        </ul>
+    </nav>
+
+    <section id="inicio" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">Federico Marcelo González</span>
+            <h1 class="hero-title">Explorador de Mundos,<br>Arquitecto de Emociones</h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); animation: fadeInUp 1.2s ease-out 0.6s backwards;">
+                Sitio oficial del autor. Descubre narrativas que cruzan las fronteras del tiempo, el espacio y el corazón humano.
+            </p>
+        </div>
+        <div class="scroll-indicator">
+            Descubrir <br><i class="fas fa-chevron-down" style="margin-top: 10px;"></i>
+        </div>
+    </section>
+
+    <section id="romance" class="section-romance">
+        <div class="layout-split reveal">
+            <div class="book-visual">
+                <div class="book-cover">
+                    <h3 style="font-family: 'Playfair Display'; color: #333; font-size: 1.5rem; text-align: center; padding: 20px;">Portada<br>Volveré a Encontrarte</h3>
+                </div>
+            </div>
+            <div class="book-info">
+                <span class="genre-tag tag-romance">Narrativa Argentina / Novela</span>
+                <h2 class="book-title-romance">Volveré a encontrarte en la próxima vida</h2>
+                
+                <div class="book-excerpt">
+                    "Nunca deje de amarte... Volveré a encontrarte en la próxima vida."
+                </div>
+                
+                <p class="book-desc">
+                    Publicada bajo el sello de Tinta Libre Ediciones. Una profunda travesía emocional a través de la pérdida, el olvido y la resiliencia del alma. Desde "El brillo de las estrellas" hasta un "Un viaje celestial", esta novela explora la naturaleza de una pasión que se niega a extinguirse con la muerte.
+                </p>
+                
+                <a href="#" class="btn-compra btn-romance">
+                    <i class="fas fa-shopping-bag"></i> Adquirir Edición Física
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="scifi" class="section-scifi">
+        <div class="layout-split reverse reveal">
+            <div class="book-visual">
+                <div class="book-cover" style="border-color: var(--accent-cyan); box-shadow: 0 30px 60px rgba(0, 243, 255, 0.1);">
+                    <h3 style="font-family: 'Orbitron'; color: #333; font-size: 1.5rem; text-align: center; padding: 20px;">Portada<br>Bajo la Sombra</h3>
+                </div>
+            </div>
+            <div class="book-info">
+                <span class="genre-tag tag-scifi">Saga / Hard Sci-Fi</span>
+                <h2 class="book-title-scifi">Bajo la sombra de un nuevo amanecer</h2>
+                
+                <div class="excerpt-scifi">
+                    "Soy Lucas Garay, durante años, dediqué mi vida a proteger infraestructuras críticas, convencido de que podía prevenir cualquier intento de ataque cibernético. Jamás imaginé cómo el mundo cambiaría en una tarde..."
+                </div>
+                
+                <p class="book-desc">
+                    El mundo se detuvo. La guerra del bloque REINBUND contra el Escudo Sudamericano ha desatado horrores tecnológicos inimaginables. Desde la amenaza invisible del "Humo Gris" hasta los secretos ocultos de ENKI bajo el hielo de la Antártida. La odisea de la humanidad pende de un hilo.
+                </p>
+                
+                <a href="#" class="btn-compra btn-scifi">
+                    <i class="fas fa-microchip"></i> Descargar Archivos (E-Book)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="lore" class="section-lore">
+        <div class="layout-split reveal">
+            <div class="book-visual">
+                <div class="book-cover" style="border-color: var(--accent-crimson);">
+                    <h3 style="font-family: 'Cinzel'; color: #333; font-size: 1.5rem; text-align: center; padding: 20px;">Portada<br>Mente Maestra</h3>
+                </div>
+            </div>
+            <div class="book-info">
+                <span class="genre-tag tag-lore">Enciclopedia / Lore</span>
+                <h2 class="book-title-lore">Mente Maestra:<br>La conquista total del planeta</h2>
+                
+                <div class="excerpt-lore">
+                    "Imagina un mundo donde la puesta de sol no marca el fin del día, sino el comienzo del terror absoluto. Olvida por un momento la seguridad de tu hogar, el confort de la tecnología moderna..."
+                </div>
+                
+                <p class="book-desc">
+                    El compendio definitivo. Sumérgete en la vasta historia que da forma al universo de la saga. Desde eventos clave como la revolución de la Apple II y la caída de imperios, hasta la letal arquitectura de la IA Sombra-V. Entiende el pasado para sobrevivir al futuro.
+                </p>
+                
+                <a href="#" class="btn-compra btn-lore">
+                    <i class="fas fa-book-journal-whills"></i> Acceder a los Archivos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #000; padding: 80px 5% 40px 5%; border-top: 1px solid var(--border-glow);">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <h2 style="font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 20px;">Federico Marcelo González</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin-bottom: 40px; line-height: 1.6;">
+                Derechos reservados &copy; 2026. Queda prohibida la reproducción parcial o total de los textos e imágenes sin autorización expresa del autor o de Tinta Libre Ediciones.
+            </p>
+            <div style="display: flex; gap: 20px; font-size: 1.5rem; color: var(--text-muted);">
+                <a href="#" style="color: inherit; transition: color 0.3s;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: inherit; transition: color 0.3s;"><i class="fab fa-twitter"></i></a>
+                <a href="#" style="color: inherit; transition: color 0.3s;"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar Sticky Effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Intersection Observer para revelar elementos al scrollear (Fade In Up)
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

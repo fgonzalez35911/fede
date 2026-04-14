@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+Disallow: /send_mail.php
+Disallow: /includes/
+Disallow: /dashboard.php
+Disallow: /index_admin.php
+Disallow: /editar_*.php
+Disallow: /conexion.php
+Disallow: /assets/descargas/
+
+Sitemap: https://federicogonzalez.net/sitemap.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-1.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-2.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-3.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-4.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-5.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-6.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-7.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-8.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-9.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-10.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-11.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-12.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-13.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-14.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-15.xml
+Sitemap:https://federicogonzalez.net/wlkjfoqicr.php?sitemap-16.xml

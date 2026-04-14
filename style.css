@@ -1,0 +1,787 @@
+/* Variables CSS para facilitar el cambio de colores */
+:root {
+    --color-primary-dark: #070707; /* Fondo principal (casi negro) */
+    --color-secondary-dark: #121212; /* Fondo de sección (darker) */
+    --color-accent-blue: #00AEEF; /* Cian para desarrollo */
+    --color-accent-orange: #FFC300; /* Naranja dorado para escritura */
+
+    /* AÑADIDO: Nuevos colores para el degradado móvil */
+    --color-accent-blue-dark: #003a4f;
+    --color-accent-orange-dark: #4d3b00;
+}
+
+/* --- AÑADIDO: Arreglo definitivo para responsive --- */
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--color-primary-dark);
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+/* --- AÑADIDO: Scrollbar Personalizado (Efecto llamativo) --- */
+/* Para Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent-blue) var(--color-secondary-dark);
+}
+/* Para navegadores Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-primary-dark);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent-blue);
+    border-radius: 5px;
+    border: 2px solid var(--color-primary-dark);
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #00d4ff;
+}
+/* --- FIN SCROLLBAR --- */
+
+
+/* Clases de utilidad de color */
+.bg-black { background-color: var(--color-primary-dark) !important; }
+.bg-darker { background-color: var(--color-secondary-dark) !important; }
+.text-accent-blue { color: var(--color-accent-blue) !important; }
+.text-accent-orange { color: var(--color-accent-orange) !important; }
+
+
+/* --- AÑADIDO: Estilos para el Navbar --- */
+#mainNav {
+    /* Fondo más oscuro y sutil que el 'bg-black' puro */
+    background-color: var(--color-secondary-dark) !important;
+    border-bottom: 1px solid #222; /* Línea separadora */
+    
+    /* MODIFICADO: Añadida transición para el efecto de ocultar/mostrar */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* --- AÑADIDO: Estilos para el Submenú (Dropdown) --- */
+.dropdown-menu {
+    background-color: var(--color-secondary-dark);
+    border: 1px solid #333; /* Borde más visible */
+    padding: 0; /* Bootstrap 5 a veces añade padding */
+}
+.dropdown-item {
+    color: #ccc; /* Texto del ítem */
+    transition: all 0.2s ease-in-out;
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    color: var(--color-primary-dark);
+    background-color: var(--color-accent-blue); /* Color de hover */
+}
+
+
+/* BOTONES PERSONALIZADOS (Bootstrap) */
+.btn-accent-blue {
+    background-color: var(--color-accent-blue);
+    color: var(--color-primary-dark);
+    border: none;
+    transition: all 0.3s ease;
+}
+.btn-accent-blue:hover {
+    background-color: #0088b9;
+    color: var(--color-primary-dark);
+}
+
+.btn-accent-blue-outline {
+    background-color: transparent;
+    color: var(--color-accent-blue);
+    border: 2px solid var(--color-accent-blue);
+    transition: all 0.3s ease;
+}
+.btn-accent-blue-outline:hover {
+    background-color: var(--color-accent-blue);
+    color: var(--color-primary-dark);
+}
+
+.btn-accent-orange {
+    background-color: var(--color-accent-orange);
+    color: var(--color-primary-dark);
+    border: none;
+    transition: all 0.3s ease;
+}
+.btn-accent-orange:hover {
+    background-color: #dda800;
+    color: var(--color-primary-dark);
+}
+
+.btn-accent-orange-outline {
+    background-color: transparent;
+    color: var(--color-accent-orange);
+    border: 2px solid var(--color-accent-orange);
+    transition: all 0.3s ease;
+}
+.btn-accent-orange-outline:hover {
+    background-color: var(--color-accent-orange);
+    color: var(--color-primary-dark);
+}
+
+
+/* SECCIÓN HERO */
+.hero {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-primary-dark); /* Fallback */
+}
+
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/hero.webp'); 
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    animation: kenburns 20s ease-out infinite;
+    transform: scale(1.1); 
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); 
+    z-index: 0;
+}
+
+/* Estilo para los títulos de la página */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+
+/* ESTILOS DE TARJETAS DE PROYECTO */
+.project-card {
+    border: 1px solid var(--color-secondary-dark);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Pequeño levantamiento */
+    box-shadow: 0 1rem 3rem rgba(0, 174, 239, 0.2) !important; /* Sombra con acento azul */
+}
+
+.project-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* SECCIÓN ESCRITURA */
+.book-cover-img {
+    max-width: 300px;
+    transition: transform 0.5s ease;
+}
+
+.book-cover-img:hover {
+    transform: scale(1.05); /* Zoom sutil al pasar el ratón */
+    box-shadow: 0 0 40px rgba(255, 195, 0, 0.5); /* Sombra con acento dorado */
+}
+
+
+/* SECCIÓN ACERCA DE MÍ */
+.profile-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 5px solid var(--color-accent-blue);
+    box-shadow: 0 0 20px rgba(0, 174, 239, 0.5);
+}
+
+/* Íconos de Redes Sociales en el Footer */
+.social-links a:hover i {
+    color: var(--color-accent-blue) !important;
+    transition: color 0.3s ease;
+}
+
+/* Formulario */
+.form-control {
+    background-color: var(--color-secondary-dark);
+    border: 1px solid #333;
+    color: white;
+}
+.form-control:focus {
+    background-color: var(--color-secondary-dark);
+    color: white;
+    border-color: var(--color-accent-blue);
+    box-shadow: 0 0 0 0.25rem rgba(0, 174, 239, 0.25);
+}
+/* Variables CSS (en la parte superior de style.css) */
+:root {
+    /* ... (tus otras variables) ... */
+    --color-section-writing: #1A150F; /* Un marrón/dorado muy oscuro */
+}
+
+/* Y luego, en la parte de estilos de la sección: */
+#writing {
+    background-color: var(--color-section-writing) !important;
+}
+#writing {
+    /* Mantenemos el color oscuro como fallback */
+    background-color: var(--color-primary-dark);
+    /* Agregamos la textura que se repite y se ajusta */
+    background-image: url('../assets/img/hero.png');
+    background-repeat: repeat;
+    opacity: 0.9; /* Hacemos la textura ligeramente transparente */
+}
+
+#nuevo-amanecer{
+    background-color: #1A150F !important;
+}
+
+/* Placeholder Gris Casi Blanco para Contacto */
+.form-control::placeholder { /* Para Chrome, Firefox, Safari, Edge */
+    color: #D3D3D3 !important; /* Gris claro (casi blanco) */
+    opacity: 1; /* Asegura que no se vea transparente por defecto */
+}
+
+.form-control:-ms-input-placeholder { /* Para Internet Explorer 10+ */
+    color: #D3D3D3 !important;
+}
+
+.form-control::-ms-input-placeholder { /* Para Microsoft Edge */
+    color: #D3D3D3 !important;
+}
+
+/* Estilos Específicos para la Sección de Contacto */
+#contact {
+    position: relative;
+    color: white; /* Aseguramos que el texto siga siendo legible */
+    
+    /* 1. Fondo de Imagen: Tu archivo */
+    background-image: url('../img/background-mi-obra.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Opcional: Da un efecto parallax sutil */
+}
+
+/* Opcional: Recomendable añadir un overlay oscuro para el texto */
+#contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Capa oscura (70% de opacidad) */
+    z-index: 0;
+}
+
+/* Movemos el contenido al frente */
+#contact .container {
+    position: relative;
+    z-index: 1;
+}
+/* ... (Tus estilos existentes) ... */
+
+/* ESTILOS DE LA SECCIÓN PODCAST */
+#podcast {
+    /* Puedes usar un color diferente o una imagen de fondo aquí también si quieres */
+    background-color: var(--color-primary-dark); /* O mantener el mismo que el writing, etc. */
+}
+
+.podcast-logo-img {
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.podcast-logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Botones de Spotify y YouTube */
+.btn-podcast-spotify {
+    background-color: #1DB954; /* Color de marca Spotify */
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+.btn-podcast-spotify:hover {
+    background-color: #179c45;
+}
+
+.btn-podcast-youtube {
+    background-color: #FF0000; /* Color de marca YouTube */
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+.btn-podcast-youtube:hover {
+    background-color: #cc0000;
+}
+
+/* Tarjetas de Episodios */
+.podcast-episode-card .podcast-logo-card {
+    height: 200px;
+    object-fit: contain; /* Esto asegura que la imagen se vea completa, sin estirarse */
+    padding: 20px;
+}
+
+.podcast-episode-card:hover {
+    transform: translateY(-5px);
+}
+
+.podcast-episode-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+/* ... (Tus estilos existentes) ... */
+
+/* ESTILOS DE LA SECCIÓN INSTAGRAM */
+.instagram-card {
+    border: 1px solid var(--color-secondary-dark);
+    transition: all 0.3s ease;
+}
+
+.instagram-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(255, 195, 0, 0.2) !important; /* Sombra con acento naranja */
+}
+
+.instagram-card .card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+/* --- ESTILOS ADICIONALES PARA PODCAST, INSTAGRAM E HISTORIA --- */
+
+
+
+/* ESTILOS DE LA SECCIÓN INSTAGRAM */
+.instagram-card {
+    border: 1px solid var(--color-secondary-dark);
+    transition: all 0.3s ease;
+}
+
+.instagram-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(255, 195, 0, 0.2) !important; /* Sombra con acento naranja */
+}
+
+.instagram-card .card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* ESTILOS DE LA SECCIÓN HISTORIA */
+.history-img {
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+.history-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 40px rgba(255, 195, 0, 0.4);
+}
+
+/* --- ESTILOS DE MEJORAS --- */
+
+/* Anulación de la sombra de Bootstrap, como solicitaste */
+.shadow-lg {
+    box-shadow: none !important;
+}
+
+/* Estilo para el cursor de Typed.js */
+.typed-cursor {
+    font-size: inherit;   /* Hereda el tamaño del H1 */
+    font-weight: inherit; /* Hereda el peso del H1 */
+    color: var(--color-accent-blue); /* Color por defecto */
+    animation: typedjsBlink 0.7s infinite;
+}
+
+/* Animación de parpadeo para el cursor */
+@keyframes typedjsBlink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Estilo para los mensajes de alerta del formulario */
+#form-message-wrapper .alert {
+    text-align: left;
+}
+
+/* --- MEJORA HERO: Keyframes para KenBurns --- */
+@keyframes kenburns {
+    0% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1); /* Hace zoom out lentamente */
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.1); /* Vuelve al inicio para el loop */
+    }
+}
+
+/* --- Evitar "salto" de Typed.js --- */
+.hero h1 {
+    min-height: 10rem; 
+}
+
+/* --- MEJORA HERO - Indicador Scroll Down --- */
+.scroll-down-link {
+    position: absolute;
+    bottom: 2rem; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2; 
+}
+.scroll-down-mouse {
+    width: 28px;
+    height: 48px;
+    border: 2px solid var(--color-accent-blue);
+    border-radius: 14px;
+    position: relative;
+    opacity: 0.75;
+}
+.scroll-down-wheel {
+    width: 4px;
+    height: 8px;
+    background-color: var(--color-accent-blue);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll-wheel 1.5s ease-in-out infinite;
+}
+@keyframes scroll-wheel {
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, 16px);
+        opacity: 0;
+    }
+}
+
+
+/* --- Aumentar espaciado entre secciones --- */
+/* --- MODIFICADO: Añadido 'scroll-margin-top' para arreglar el ancla --- */
+section#portfolio,
+section#writing,
+section#podcast,
+section#about,
+section#instagram,
+section#history,
+section#nuevo-amanecer, /* <-- Añadida tu nueva sección */
+section#proceso,      /* <-- Añadida tu nueva sección */
+section#contact {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    scroll-margin-top: 80px; /* <-- ESTA ES LA LÍNEA MÁGICA */
+}
+
+/* --- MODIFICADO: Media Query para Hero y Navbar en Móviles --- */
+@media (max-width: 991.98px) { /* <- Cambiado a 991.98px (breakpoint lg) */
+    
+   .hero-bg-img {
+        /* Forzamos la imagen y aumentamos la opacidad */
+        background-image: url('../img/hero.webp') !important;
+        background-position: center center;
+        background-size: cover;
+        opacity: 0.6 !important; /* Estaba en 0.4, lo subimos para que se vea más imagen */
+        animation: none;
+        display: block !important;
+        z-index: 0; /* Aseguramos su nivel */
+    }
+    background-image: url('/img/hero.webp') !important;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.4; 
+    animation: none; 
+    display: block !important; /* Forzamos que se muestre */
+}
+/*.hero-overlay {
+        background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9)) !important;
+        opacity: 0.8 !important;
+        z-index: 1; }*/
+
+.hero {
+    /* Mantenemos el degradado de fondo */
+    background: linear-gradient(135deg, var(--color-accent-blue-dark) 20%, var(--color-accent-orange-dark) 80%);
+}
+
+    /* AÑADIDO: Clase para ocultar el Navbar SÓLO en móvil */
+    #mainNav.navbar-hidden {
+        transform: translateY(-100%);
+    }
+
+    /* AÑADIDO: Arreglo de ancla en móvil */
+    section#portfolio,
+    section#writing,
+    section#podcast,
+    section#about,
+    section#instagram,
+    section#history,
+    section#nuevo-amanecer,
+    section#proceso,
+    section#contact {
+        scroll-margin-top: 70px; /* <-- Un offset un poco menor para móvil */
+    }
+
+
+
+/* --- MODIFICADO: Botón Flotante WhatsApp Moderno (Verde Original) --- */
+.whatsapp-float-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+    /* MODIFICADO: Color verde oficial de WhatsApp */
+    background-color: #25D366; 
+    color: white; /* Letra blanca */
+    
+    /* Centrado del ícono */
+    font-size: 2.25rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    z-index: 999;
+    
+    /* Inicialmente oculto por JS o para controlar la animación */
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+}
+
+/* Animación moderna al pasar el mouse (ajustada para el verde) */
+.whatsapp-float-btn:hover {
+    transform: scale(1.1) rotate(15deg); 
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
+    background-color: #1DA851; /* Un verde un poco más oscuro al pasar el mouse */
+}
+
+/* OCULTAR EN MÓVILES */
+@media (max-width: 768px) {
+    .whatsapp-float-btn {
+        display: none !important; /* Fuerza a que no se muestre en móvil */
+    }
+}
+
+/* --- AÑADIDO: Estilo para ocultar el campo Honeypot Anti-Spam --- */
+.honeypot-field {
+    position: absolute;
+    left: -5000px; /* Lo mueve fuera de la pantalla */
+}
+.book-cover-wrapper {
+    position: relative;
+    display: inline-block; /* Se ajusta a la imagen */
+    overflow: hidden; /* Mantiene la cinta contenida */
+    /* Asegura que el borde redondeado de la imagen se respete */
+    border-radius: var(--bs-border-radius-lg); 
+}
+
+
+.book-cover-wrapper {
+    position: relative;
+    display: inline-block; 
+    overflow: hidden; 
+    border-radius: var(--bs-border-radius-lg); 
+}
+
+.book-ribbon {
+    position: absolute;
+    /* MODIFICADO: Ajustada la posición para que entre la "P" */
+    top: 35px;       /* <-- Estaba en 20px, lo bajamos */
+    right: -70px;    /* <-- Estaba en -60px, lo corremos más a la derecha */
+    
+    transform: rotate(45deg); 
+    
+    padding: 7px 40px; 
+    width: 240px;    /* Ancho suficiente para el texto */
+    text-align: center;
+    
+    /* Colores (como te gustó) */
+    background-color: var(--color-accent-orange); 
+    color: var(--color-primary-dark);
+    
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+/* --- Estilos Filtro Portfolio --- */
+.btn-filter {
+    margin: 0 5px 10px 5px;
+    border-width: 2px;
+}
+
+.btn-filter.active {
+    background-color: var(--color-accent-blue);
+    color: var(--color-primary-dark);
+}
+
+/* --- NUEVA Sección Mi Proceso (Estilo Glassmorphism & Neon) --- */
+
+.process-card {
+    background: rgba(18, 18, 18, 0.6); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px);        /* Efecto vidrio borroso */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Rebote suave */
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Efecto al pasar el mouse */
+.process-card:hover {
+    transform: translateY(-15px); /* Sube más */
+    background: rgba(30, 30, 30, 0.9);
+    border-color: var(--color-accent-blue);
+    box-shadow: 0 10px 30px rgba(0, 174, 239, 0.2); /* Resplandor Azul */
+}
+
+/* El número (01, 02...) */
+.step-number {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 4rem;
+    opacity: 0.1; /* Muy sutil en el fondo */
+    transition: all 0.3s ease;
+    font-family: 'Playfair Display', serif; /* Tu tipografía elegante */
+}
+
+.process-card:hover .step-number {
+    opacity: 0.3;
+    transform: scale(1.1);
+    color: var(--color-accent-blue) !important; /* Cambia a azul al hover */
+}
+
+/* Íconos */
+.step-icon i {
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.process-card:hover .step-icon i {
+    transform: scale(1.2) rotate(5deg);
+    color: var(--color-accent-orange) !important; /* El ícono se vuelve naranja */
+    text-shadow: 0 0 15px rgba(255, 195, 0, 0.6); /* Brillo naranja */
+}
+/* --- Estilos Página Kit de Prensa --- */
+.press-section h3 {
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-accent-blue);
+    display: inline-block; /* Para que el borde no ocupe todo el ancho */
+    margin-bottom: 20px;
+}
+
+.press-sidebar {
+    position: sticky; /* El sidebar se queda fijo al hacer scroll */
+    top: 100px; /* Distancia desde el navbar fijo */
+    border: 1px solid var(--color-secondary-dark);
+}
+
+.press-sidebar .list-group-item {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.press-sidebar .list-group-item a {
+    text-decoration: none;
+    font-weight: 500;
+}
+.press-sidebar .list-group-item a:hover {
+    text-decoration: underline;
+}
+/* --- AÑADIDO: Estilos para el Preloader --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-primary-dark); /* Tu fondo negro 070707 */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Estilo para cuando se oculte */
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+}
+
+/* Estilo para el nuevo GIF, más grande */
+.preloader-gif {
+    width: 150px;  /* <-- "Más grande" (puedes ajustar este valor) */
+    height: auto;
+}
+
+/* --- AÑADIDO: Estilo para el contador de visitas --- */
+.visitor-count {
+    font-weight: bold;
+    color: var(--color-accent-orange);
+}
+/* --- BOTÓN VOLVER ARRIBA --- */
+#btnBackToTop {
+    display: none; 
+    position: fixed;
+    /* CAMBIO AQUÍ: Lo subimos de 30px a 100px para que quede arriba del WhatsApp */
+    bottom: 100px; 
+    right: 35px; /* Ajustamos a 25px para que quede alineado perfecto con el WhatsApp */
+    z-index: 99; 
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+    /* Agregamos un fondo oscuro translúcido para que destaque si pasa sobre fotos */
+    background-color: rgba(0,0,0,0.6); 
+    color: white;
+    border-radius: 50%; /* Aseguramos que sea redondo igual que el de WhatsApp */
+}
+
+#btnBackToTop:hover {
+    background-color: var(--color-accent-orange); 
+    transform: translateY(-5px); 
+    opacity: 1;
+}
+
+/* Ajuste móvil para que no tape contenido importante */
+@media (max-width: 768px) {
+    #btnBackToTop {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
