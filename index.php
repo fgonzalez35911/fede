@@ -194,12 +194,53 @@ include 'includes/header.php';
 
 <section id="proceso" class="py-5 bg-black text-white text-center">
     <div class="container">
-        <h2 class="display-4 mb-5"><i class="fas fa-project-diagram text-accent-blue me-3"></i>Mi Proceso</h2>
+        <h2 class="display-4 mb-5" data-aos="fade-up"><i class="fas fa-project-diagram text-accent-blue me-3"></i>Mi Proceso</h2>
         <div class="row g-4">
-            <div class="col-md-3"><div class="proceso-step p-4"><h5>1. Análisis</h5></div></div>
-            <div class="col-md-3"><div class="proceso-step p-4"><h5>2. Diseño</h5></div></div>
-            <div class="col-md-3"><div class="proceso-step p-4"><h5>3. Desarrollo</h5></div></div>
-            <div class="col-md-3"><div class="proceso-step p-4"><h5>4. Despliegue</h5></div></div>
+            
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="process-card p-4 position-relative h-100">
+                    <span class="step-number text-white fw-bold">01</span>
+                    <div class="step-icon mb-3">
+                        <i class="fas fa-search fa-3x text-accent-blue"></i>
+                    </div>
+                    <h5 class="fw-bold">Análisis</h5>
+                    <p class="text-white-50 small mt-2">Comprendo a fondo las necesidades y requerimientos del sistema.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="process-card p-4 position-relative h-100">
+                    <span class="step-number text-white fw-bold">02</span>
+                    <div class="step-icon mb-3">
+                        <i class="fas fa-pencil-ruler fa-3x text-accent-blue"></i>
+                    </div>
+                    <h5 class="fw-bold">Diseño</h5>
+                    <p class="text-white-50 small mt-2">Estructuramos la arquitectura, base de datos y la interfaz visual.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="process-card p-4 position-relative h-100">
+                    <span class="step-number text-white fw-bold">03</span>
+                    <div class="step-icon mb-3">
+                        <i class="fas fa-code fa-3x text-accent-blue"></i>
+                    </div>
+                    <h5 class="fw-bold">Desarrollo</h5>
+                    <p class="text-white-50 small mt-2">Escribo código limpio, seguro y escalable dando vida a la solución.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="process-card p-4 position-relative h-100">
+                    <span class="step-number text-white fw-bold">04</span>
+                    <div class="step-icon mb-3">
+                        <i class="fas fa-rocket fa-3x text-accent-blue"></i>
+                    </div>
+                    <h5 class="fw-bold">Despliegue</h5>
+                    <p class="text-white-50 small mt-2">Lanzamos tu proyecto al entorno de producción de forma segura.</p>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
